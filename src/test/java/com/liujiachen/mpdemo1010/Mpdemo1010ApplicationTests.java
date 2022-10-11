@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -60,5 +61,12 @@ class Mpdemo1010ApplicationTests {
         user.setAge(200);
         int i = userMapper.updateById(user);
         System.out.println(i);
+    }
+
+    // 多个id批量查询
+    @Test
+    public void testSelectDemo1(){
+        List<User> users = userMapper.selectBatchIds(Arrays.asList(1L, 2L, 3L));
+        System.out.println(users);
     }
 }
